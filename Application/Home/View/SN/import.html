@@ -1,0 +1,96 @@
+<style type="text/css">
+	.row-fluid {
+		line-height: 40px;
+		font-size: 60%;
+		border-bottom: 1px lightgray solid;
+		border-left: 1px lightgray solid;
+		border-right: 1px lightgray solid;
+	}
+	
+	.row-fluid:first-of-type {
+		margin-top: 20px;
+		border-top: 1px lightgray solid;
+	}
+	
+	.row-fluid:last-of-type {
+		margin-bottom: 20px;
+	}
+	
+	input {
+		margin-bottom: 0!important;
+		width: 40%;
+	}
+	
+	select {
+		margin-bottom: 0!important;
+	}
+	
+	.row-fluid .span12 {
+		background-color: #F0F0F0;
+		font-weight: bold;
+	}
+	
+	textarea {
+		width: 96%;
+		margin-top: 8px;
+	}
+	
+	.right-border {
+		border-right: 1px lightgray solid;
+	}
+</style>
+
+<div class='container-fluid'>
+
+	<form id="mform" action="__URL__/saveImport" method="post" class='form validate-form' enctype="multipart/form-data">
+		<div class='row-fluid'>
+			<div class='span12'>
+				&nbsp;&nbsp;<i class='icon-upload'></i>&nbsp;&nbsp;SN入库
+			</div>
+		</div>
+
+		<div class='row-fluid'>
+			<div class='span12 text-red'>
+				&nbsp;&nbsp;注意事项: 
+				<br />
+				&nbsp;&nbsp;1. 请先下载模版，根据模版填充数据，模版为CSV文件，修改后请选择保存为CSV格式
+				<br />
+				&nbsp;&nbsp;2. 模板中填充的数据，如果是数字或日期，请在结尾添加 ; 符号，将其转换成文本 
+				<br />
+				&nbsp;&nbsp;3. 不要填写模版规定以外的内容，否则会提示报错 
+				<br />
+				&nbsp;&nbsp;4. 最多可导入100条 
+			</div>
+		</div>
+
+		<div class='row-fluid'>
+			<div class='span2 text-right text-red'>
+				&nbsp;&nbsp;上传文件：
+			</div>
+			<div class='span10'>
+				<input name="file" type="file" id="" data-val="" />
+				<a href="__ROOT__/Downloads/SNActivate.csv" class="text-error">&nbsp;&nbsp;&nbsp;&nbsp;下载模版&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			</div>
+		</div>
+
+		<hr />
+
+	</form>
+
+	<div class="btn-group {$hidden}">
+
+		<button class="btn btn-large btn-success " onclick="submitForm()"><i class="icon-save"></i>&nbsp;&nbsp;导入&nbsp;&nbsp;</button>
+
+		<button class="btn btn-large" onclick="javascript:window.history.go(-1)"><i class="icon-reply"></i>&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+
+	</div>
+
+</div>
+
+<script>
+	$(function() {});
+
+	function submitForm() {
+		$("#mform").submit();
+	};
+</script>

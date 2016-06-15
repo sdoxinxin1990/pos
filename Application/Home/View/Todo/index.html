@@ -1,0 +1,100 @@
+<style>
+	label {
+		margin-bottom: 0;
+		line-height: 25px;
+	}
+	
+	.date {
+		font-size: 120%!important;
+		margin-bottom: 10px;
+	}
+</style>
+
+<div class='container-fluid'>
+
+	<div class='row-fluid' id='content-wrapper'>
+
+		<div class='span12'>
+
+			<div class='page-header'>
+
+				<h1 class='pull-left'><i class='icon-list-alt'></i>&nbsp;&nbsp;<span>待办事项</span></h1>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class='row-fluid'>
+
+		<div class='span12 box'>
+
+			<div class='row-fluid todo-list'>
+
+				<div class='span12 box box-nomargin'>
+
+					<div class='box-content box-no-padding'>
+
+						<div class='sortable-container'>
+
+							<div class='date text-contrast'>2016/6/7</div>
+
+							<ul class='unstyled sortable' data-sortable-axis='y' data-sortable-connect='.sortable'>
+
+								<li class='important item'>
+
+									<label class='check pull-left todo'>待办事项1</label>
+
+									<div class='actions pull-right'>
+
+										<a data-target="11" class='btn btn-link text-success btn-confirm' data-placement='top' href='#' title='标记完成'>
+
+											<i class='icon-ok'></i>
+
+										</a>
+
+									</div>
+
+								</li>
+								
+								<li class='important item'>
+
+									<label class='check pull-left todo'>待办事项2</label>
+
+									<div class='actions pull-right'>
+
+										<a data-target="22" class='btn btn-link text-success btn-confirm' data-placement='top' href='#' title='标记完成'>
+
+											<i class='icon-ok'></i>
+
+										</a>
+
+									</div>
+
+								</li>
+
+							</ul>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<script>
+	$(function(){
+		$('.btn-confirm').click(function(){
+			alert($(this).attr("data-target")); 
+			$(this).parent().parent().remove();
+		});
+	});
+</script>

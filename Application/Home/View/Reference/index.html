@@ -1,0 +1,150 @@
+<style type="text/css">
+	.form-actions {
+		background: none;
+	}
+	
+	.box .box-content.box-double-padding {
+		padding: 20px 20px 0 20px;
+	}
+	
+	.control-label {
+		font-weight: bold;
+	}
+	
+	.form-control {
+		margin-bottom: 2px!important;
+	}
+</style>
+<div class='container-fluid'>
+
+	<div class='row-fluid' id='content-wrapper'>
+
+		<div class='span12'>
+
+			<div class='page-header'>
+
+				<h1 class='pull-left'><i class='icon-user'></i>&nbsp;&nbsp;<span>推荐人管理</span></h1>
+
+				<div class="pull-right">
+
+				</div>
+
+			</div>
+
+		</div>
+		
+		<div class="row-fluid" style="border: none;font-weight: bold;">
+
+			<div class="span2 box-quick-link green-background">
+
+				<a href="__URL__/showDetail?op=add">
+
+					<div class="header">
+
+						<div class="icon-plus-sign"></div>
+
+					</div>
+
+					<div class="content">新建</div>
+
+				</a>
+
+			</div>
+
+		</div>
+		
+		<div class="row-fluid">
+			<table id="table" class="datatable" data-striped="true" data-toggle="table" data-url="__URL__/getList" data-show-columns="true" data-search="true" data-show-refresh="true" data-show-toggle="true" data-pagination="true" data-show-export="true">
+				<thead>
+					<tr>
+						<th data-align="center" data-formatter="noFormatter" data-field="identifier">编号</th>
+						<th data-field="name">姓名</th>
+						<th data-field="phone">手机</th>
+						<th data-field="percentage_commission">提成比例（%）</th>
+						<th data-field="bank_account">账户名称</th>
+						<th data-field="bank_deposit">开户行</th>
+						<th data-field="unionpay">联行号</th>
+						<th data-field="state">状态</th>
+						<th data-align="center" data-field="col10" data-formatter="operateFormatter">操作</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		
+	</div>
+	
+</div>
+
+
+<div class='modal hide fade' id='modal-example' role='dialog' tabindex='-1'>
+
+	<div class='modal-header'>
+
+		<button class='close' data-dismiss='modal' type='button'>&times;</button>
+
+		<h3>询问</h3>
+
+	</div>
+
+	<div class='modal-body'>
+
+		<p>确认删除该推荐人信息？</p>
+
+	</div>
+
+	<div class='modal-footer'>
+
+		<button class='btn' data-dismiss='modal'>取消</button>
+
+		<button class='btn btn-danger' onclick="btnConfirmedRemove()">确认</button>
+
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	var rowIndexLastSeleted;
+	
+	function operateFormatter(value, row, index) {
+		return [
+			' <div class="btn-group">',
+			'<a style="min-width:60px" class="btn btn-primary" onclick="btnShowDetail(' + index + ')">',
+			'<i class="icon-pencil"></i>',
+			'&nbsp;&nbsp;编辑',
+			'</a>',
+			'<a style="min-width:60px" data-toggle="modal" href="#modal-example" class="btn btn-danger" onclick="btnAsk4remove(' + index + ')">',
+			'<i class="icon-remove"></i>',
+			'&nbsp;&nbsp;删除',
+			'</a>',
+			'</div>'
+		].join('');
+	};
+	
+	function btnShowDetail(index) {
+		var row = $("#table").bootstrapTable('getData')[index];
+		console.log(row);
+		window.location = "__URL__/showDetail?op=edit&identifier=" + row['identifier'];
+	}
+	
+	function btnAsk4remove(index) {
+		rowIndexLastSeleted = index;
+	};
+	
+	function btnConfirmedRemove() {
+		var row = $("#table").bootstrapTable('getData')[rowIndexLastSeleted];
+		console.log(row);
+		window.location = "__URL__/delete?identifier=" + row['identifier'];
+	};
+	
+	function noFormatter(value, row, index) {
+		return [
+			'<a class="text-red" href="__URL__/showDetail?op=show&identifier=',
+			value,
+			'">',
+			value,
+			'</a>'
+		].join('');
+	};
+	
+</script>	
+

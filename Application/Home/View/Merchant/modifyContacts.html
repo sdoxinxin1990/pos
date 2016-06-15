@@ -1,0 +1,122 @@
+<style type="text/css">
+	.row-fluid {
+		line-height: 40px;
+		font-size: 60%;
+		border-bottom: 1px lightgray solid;
+		border-left: 1px lightgray solid;
+		border-right: 1px lightgray solid;
+	}
+	
+	.row-fluid:first-of-type {
+		margin-top: 20px;
+		border-top: 1px lightgray solid;
+	}
+	
+	.row-fluid:last-of-type {
+		margin-bottom: 20px;
+	}
+	
+	input {
+		margin-bottom: 0!important;
+		width: 40%;
+	}
+	
+	select {
+		margin-bottom: 0!important;
+	}
+	
+	.row-fluid .span12 {
+		background-color: #F0F0F0;
+		font-weight: bold;
+	}
+	
+	textarea {
+		width: 96%;
+		margin-top: 8px;
+	}
+	
+	.right-border {
+		border-right: 1px lightgray solid;
+	}
+</style>
+
+<div class='container-fluid'>
+
+	<form action="__URL__/saveContacts" method="post" class='form validate-form' enctype="multipart/form-data">
+		
+		<div class="hidden">
+			<input name="uuid" type="text" id="" value="{$data.uuid}" />
+		</div>
+		
+		<div class='row-fluid'>
+			<div class='span12'>
+				&nbsp;&nbsp;<i class='icon-file'></i>&nbsp;&nbsp;编辑联系人
+			</div>
+		</div>
+
+		<div class='row-fluid'>
+			<div class='span12'>
+				&nbsp;&nbsp;联系人基本信息(红色字体必填。)
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right text-error'>
+				&nbsp;&nbsp;联系人姓名：
+			</div>
+			<div class='span10'>
+				<input name="contacts_name" type="text" id="" value="{$data.contacts_name}" data-rule-required='true'/>
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right text-error'>
+				&nbsp;&nbsp;联系人手机：
+			</div>
+			<div class='span10'>
+				<input name="contacts_cellphone" type="text" id="" value="{$data.contacts_cellphone}" data-rule-required='true'/>
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right'>
+				&nbsp;&nbsp;联系人固定电话：
+			</div>
+			<div class='span10'>
+				<input name="contacts_phone" type="text" id="" value="{$data.contacts_phone}" />
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right text-error'>
+				&nbsp;&nbsp;联系人E-mail：
+			</div>
+			<div class='span10'>
+				<input name="contacts_email" type="text" id="" value="{$data.contacts_email}" data-rule-required='true'/>
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right'>
+				&nbsp;&nbsp;传真：
+			</div>
+			<div class='span10'>
+				<input name="basic_fax" type="text" id="" value="{$data.basic_fax}" />
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right'>
+				&nbsp;&nbsp;邮编：
+			</div>
+			<div class='span10'>
+				<input name="basic_post_code" type="text" id="" value="{$data.basic_post_code}" />
+			</div>
+		</div>
+		
+		<hr />
+
+		<div class="btn-group">
+
+			<button type="submit" class="btn btn-large btn-success "><i class="icon-save"></i>&nbsp;&nbsp;保存&nbsp;&nbsp;</button>
+
+			<button class="btn btn-large" onclick="javascript:window.history.go(-1)"><i class="icon-reply"></i>&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+
+		</div>
+	</form>
+
+</div>

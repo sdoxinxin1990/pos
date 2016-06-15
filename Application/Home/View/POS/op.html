@@ -1,0 +1,166 @@
+<style type="text/css">
+	.row-fluid {
+		line-height: 40px;
+		font-size: 60%;
+		border-bottom: 1px lightgray solid;
+		border-left: 1px lightgray solid;
+		border-right: 1px lightgray solid;
+	}
+	
+	.row-fluid:first-of-type {
+		margin-top: 20px;
+		border-top: 1px lightgray solid;
+	}
+	
+	.row-fluid:last-of-type {
+		margin-bottom: 20px;
+	}
+	
+	input {
+		margin-bottom: 0!important;
+		width: 40%;
+	}
+	
+	select {
+		margin-bottom: 0!important;
+	}
+	
+	.row-fluid .span12 {
+		background-color: #F0F0F0;
+		font-weight: bold;
+	}
+	
+	textarea {
+		width: 96%;
+		margin-top: 8px;
+	}
+	
+	.right-border {
+		border-right: 1px lightgray solid;
+	}
+</style>
+
+<div class='container-fluid'>
+
+	<form id="mform" action="__URL__/{$saveMethod}" method="post" class='form validate-form' enctype="multipart/form-data">
+
+		<div class="hidden">
+			<input id="res" name="res" type="reset" />
+			<input type="text" name="pos_uuid" value="{$data.pos_uuid}" />
+			<input type="text" name="merchant_uuid" value="{$data.merchant_uuid}" />
+		</div>
+
+		<div class='row-fluid'>
+			<div class='span12'>
+				&nbsp;&nbsp;<i class='icon-file'></i>&nbsp;&nbsp;{$opName}
+			</div>
+		</div>
+
+		<div class='row-fluid'>
+			<div class='span2 text-right text-error'>
+				&nbsp;&nbsp;SN号：
+			</div>
+			<div class='span10'>
+				<div class="input-prepend input-append" style="margin-bottom: 0;">
+					<input name="sn_number" type="text" id="" value="{$data.sn_number}" class="text-right" type="text" style="margin-top: 4px;min-width: 344px;" />
+					<button type="button" onclick="checkSN()" class="add-on btn btn-primary" style="margin-top: 4px;height: auto;text-shadow: none;">&nbsp;&nbsp;检查&nbsp;&nbsp;</button>
+				</div>
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right text-error'>
+				&nbsp;&nbsp;SIM卡号：
+			</div>
+			<div class='span10'>
+				<div class="input-prepend input-append" style="margin-bottom: 0;">
+					<input name="sim_number" value="{$data.sim_number}" class="text-right" type="text" style="margin-top: 4px;min-width: 344px;">
+					<button type="button" onclick="checkSIM()" class="add-on btn btn-primary" style="margin-top: 4px;height: auto;text-shadow: none;">&nbsp;&nbsp;检查&nbsp;&nbsp;</button>
+				</div>
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right text-error'>
+				&nbsp;&nbsp;终端号：
+			</div>
+			<div class='span10'>
+				<input name="terminal_number" type="text" id="" value="{$data.terminal_number}" />
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right text-error'>
+				&nbsp;&nbsp;终端类型：
+			</div>
+			<div class='span10'>
+				<!--<input type="text" id="" value=""/>-->
+				<select name="terminal_type" class="{$data.terminal_type_hidden}" data-val="{$data.terminal_type}">
+					<option value="无线POS">无线POS</option>
+					<option value="有线POS">有线POS</option>
+				</select> &nbsp;&nbsp;{$data.terminal_type}
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right'>
+				&nbsp;&nbsp;终端型号：
+			</div>
+			<div class='span10'>
+				<input name="terminal_model" type="text" id="" value="{$data.terminal_model}" />
+			</div>
+		</div>
+
+		<hr />
+
+	</form>
+
+	<div class="btn-group">
+
+		<button class="btn btn-large btn-success " onclick="submitForm()"><i class="icon-save"></i>&nbsp;&nbsp;保存&nbsp;&nbsp;</button>
+
+		<button class="btn btn-large" onclick="javascript:window.history.go(-1)"><i class="icon-reply"></i>&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+
+	</div>
+
+</div>
+
+<script>
+	function checkSN() {
+		//		bootbox.alert("建设中……");
+		$.ajax({
+			url: "__MODULE__/SN/Check?kw=" + $("[name='sn_number']").val(),
+			success: function(r) {
+				r = eval("(" + r + ")");
+				bootbox.alert(r.msg);
+				$("[name='terminal_model']").val(r.data);
+			}
+		});
+	};
+
+	function checkSIM() {
+		//		bootbox.alert("建设中……");
+		$.ajax({
+			url: "__MODULE__/SIM/Check?kw=" + $("[name='sim_number']").val(),
+			success: function(r) {
+				r = eval("(" + r + ")");
+				bootbox.alert(r.msg);
+			}
+		});
+	};
+	$(function() {
+		setSelet();
+	});
+
+	function setSelet() {
+		$("select").each(function() {
+			var val = $(this).attr("data-val");
+			// alert($(this).attr("data-val"));
+			$(this).find("option").each(function() {
+				if ($(this).val() == val) {
+					$(this).attr("selected", true);
+				}
+			});
+		});
+	};
+
+	function submitForm() {
+		$("#mform").submit();
+	};
+</script>

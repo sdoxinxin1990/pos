@@ -1,0 +1,1 @@
+a:6:{i:0;s:8:"file_num";i:1;s:9:"file_name";i:2;s:8:"file_url";i:3;s:12:"file_remarks";s:3:"_pk";s:8:"file_num";s:5:"_type";a:4:{s:8:"file_num";s:7:"int(11)";s:9:"file_name";s:12:"varchar(100)";s:8:"file_url";s:12:"varchar(100)";s:12:"file_remarks";s:13:"varchar(1000)";}}

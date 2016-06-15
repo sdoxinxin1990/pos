@@ -1,0 +1,114 @@
+<style type="text/css">
+	.row-fluid {
+		line-height: 40px;
+		font-size: 60%;
+		border-bottom: 1px lightgray solid;
+		border-left: 1px lightgray solid;
+		border-right: 1px lightgray solid;
+	}
+	
+	.row-fluid:first-of-type {
+		margin-top: 20px;
+		border-top: 1px lightgray solid;
+	}
+	
+	.row-fluid:last-of-type {
+		margin-bottom: 20px;
+	}
+	
+	input {
+		margin-bottom: 0!important;
+		width: 96%;
+	}
+	
+	select {
+		margin-bottom: 0!important;
+		width: 36%;
+	}
+	
+	.row-fluid .span12 {
+		background-color: #F0F0F0;
+		font-weight: bold;
+	}
+	
+	textarea {
+		width: 96%;
+		margin-top: 8px;
+	}
+	
+	.right-border {
+		border-right: 1px lightgray solid;
+	}
+	
+	.span1 {
+		margin-left: 0!important;
+		min-width: 72px;
+	}
+	
+	.content {
+		line-height: 21px;
+		font-weight: bold;
+	}
+	.left-border {
+		border-left: 1px lightgray solid;
+	}
+</style>
+
+<div class='container-fluid'>
+
+	<div class='row-fluid'>
+		<div class='span12 blue-background' style="color: white;">
+			&nbsp;&nbsp;<i class='icon-file'></i>&nbsp;&nbsp;{$data.apply_type}申请详细信息
+		</div>
+	</div>
+
+	<div class='row-fluid'>
+		<div class='span2 right-border'>
+			&nbsp;&nbsp;&nbsp;&nbsp;序号：
+		</div>
+		<div class='span10'>
+			{$data.serial_num}
+		</div>
+	</div>
+	
+	<div class='row-fluid'>
+		<div class='span2 right-border'>
+			&nbsp;&nbsp;&nbsp;&nbsp;商户：
+		</div>
+		<div class='span10'>
+			{$data.basic_busi_name}({$data.basic_busi_no})
+		</div>
+	</div>
+
+	<div class='row-fluid'>
+		<div class='span2 right-border'>
+			&nbsp;&nbsp;&nbsp;&nbsp;商户扣率信息：
+		</div>
+		<div class='span10'>
+			商户扣率：({$data.settlement_basic_rate_percentage}%，{$data.settlement_basic_rate_ceiling}元封顶)，{$data.basic_main_busi}
+		</div>
+	</div>
+	
+	<div class='row-fluid'>
+		<div class='span2 right-border'>
+			&nbsp;&nbsp;&nbsp;&nbsp;描述：
+			<br />
+			&nbsp;&nbsp;
+		</div>
+		<div class='span10'>
+			{$data.apply_describe}
+		</div>
+	</div>
+	
+	<div class='row-fluid'>
+		<div class='span2 right-border'>
+			&nbsp;&nbsp;&nbsp;&nbsp;原因：
+			<br />
+			&nbsp;&nbsp;
+		</div>
+		<div class='span10'>
+			{$data.apply_reason}
+		</div>
+	</div>
+
+</div>

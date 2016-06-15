@@ -1,0 +1,24 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+#wrapper {
+	min-height: calc(100% - 40px)!important;
+	min-height: -webkit-calc(100% - 40px)!important;
+}
+
+#m-iframe {
+	border: none;
+	width: 100%;
+}
+
+header .navbar .navbar-inner {
+	padding: 0;
+}
+
+#content {
+	padding-bottom: 0!important;
+}

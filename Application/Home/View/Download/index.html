@@ -1,0 +1,147 @@
+<style type="text/css">
+	.form-actions {
+		background: none;
+	}
+	
+	.box .box-content.box-double-padding {
+		padding: 20px 20px 0 20px;
+	}
+	
+	.control-label {
+		font-weight: bold;
+	}
+	
+	.form-control {
+		margin-bottom: 2px!important;
+	}
+</style>
+<div class='container-fluid'>
+
+	<div class='row-fluid' id='content-wrapper'>
+
+		<div class='span12'>
+
+			<div class='page-header'>
+
+				<h1 class='pull-left'><i class='icon-download-alt'></i>&nbsp;&nbsp;<span>下载中心</span></h1>
+
+				<div class="pull-right">
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div id="op_area" class="row-fluid" style="border: none;font-weight: bold;">
+
+		<div class="span2 box-quick-link green-background">
+
+			<a href="__URL__/showDetail">
+
+				<div class="header">
+
+					<div class="icon-upload"></div>
+
+				</div>
+
+				<div class="content">上传文件</div>
+
+			</a>
+
+		</div>
+
+	</div>
+
+	<div class="row-fluid">
+		<table id="table" class="datatable" data-striped="true" data-toggle="table" data-url="__URL__/getList" data-show-columns="true" data-search="true" data-show-refresh="true" data-show-toggle="true" data-pagination="true" data-show-export="true">
+			<thead>
+				<tr>
+					<th data-field="file_name">文件名</th>
+					<th data-field="file_remarks">描述</th>
+					<th data-align="center" data-field="col10" data-formatter="operateFormatter">操作</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+</div>
+
+<div class='modal hide fade' id='modal-example' role='dialog' tabindex='-1'>
+
+	<div class='modal-header'>
+
+		<button class='close' data-dismiss='modal' type='button'>&times;</button>
+
+		<h3>询问</h3>
+
+	</div>
+
+	<div class='modal-body'>
+
+		<p>确认删除该文件？</p>
+
+	</div>
+
+	<div class='modal-footer'>
+
+		<button class='btn' data-dismiss='modal'>取消</button>
+
+		<button class='btn btn-danger' onclick="btnConfirmedRemove()">确认</button>
+
+	</div>
+
+</div>
+
+<script>
+	var rowIndexLastSeleted;
+	var mbRole = "{$mbRole}";
+	var mbID = "{$mbID}";
+	
+	$(function() {
+		initHidden();
+	});
+
+	function initHidden() {
+		if (mbRole != "经理") {
+			$("#op_area").hide();
+		}
+	};
+
+	function operateFormatter(value, row, index) {
+		var hidden = "";
+		if (mbRole != "经理") {
+			hidden = " hidden "
+		}
+		return [
+			' <div class="btn-group">',
+			'<a style="min-width:60px" class="btn btn-success" onclick="btnDownload(' + index + ')">',
+			'<i class="icon-download-alt"></i>',
+			'&nbsp;&nbsp;下载',
+			'</a>',
+			'<a style="min-width:60px" data-toggle="modal" href="#modal-example" class="' + hidden + 'btn btn-danger" onclick="btnAsk4remove(' + index + ')">',
+			'<i class="icon-remove"></i>',
+			'&nbsp;&nbsp;删除',
+			'</a>',
+			'</div>'
+		].join('');
+	};
+
+	function btnDownload(index) {
+		var row = $("#table").bootstrapTable('getData')[index];
+		console.log(row);
+		window.open("__ROOT__/Uploads/" + row['file_url']);
+	};
+
+	function btnAsk4remove(index) {
+		rowIndexLastSeleted = index;
+	};
+
+	function btnConfirmedRemove() {
+		var row = $("#table").bootstrapTable('getData')[rowIndexLastSeleted];
+		console.log(row);
+		window.location = "__URL__/delete?fileNum=" + row['file_num'];
+	};
+</script>

@@ -1,0 +1,111 @@
+<style type="text/css">
+	.row-fluid {
+		line-height: 40px;
+		font-size: 60%;
+		border-bottom: 1px lightgray solid;
+		border-left: 1px lightgray solid;
+		border-right: 1px lightgray solid;
+	}
+	
+	.row-fluid:first-of-type {
+		margin-top: 20px;
+		border-top: 1px lightgray solid;
+	}
+	
+	.row-fluid:last-of-type {
+		margin-bottom: 20px;
+	}
+	
+	input {
+		margin-bottom: 0!important;
+		width: 40%;
+	}
+	
+	select {
+		margin-bottom: 0!important;
+	}
+	
+	.row-fluid .span12 {
+		background-color: #F0F0F0;
+		font-weight: bold;
+	}
+	
+	textarea {
+		width: 96%;
+		margin-top: 8px;
+	}
+	
+	.right-border {
+		border-right: 1px lightgray solid;
+	}
+</style>
+
+<div class='container-fluid'>
+
+	<form action="" method="post">
+
+		<input type="text" class="hidden" id="uuid" value="{$data.uuid}" />
+
+		<div class='row-fluid'>
+			<div class='span12'>
+				&nbsp;&nbsp;<i class='icon-file'></i>&nbsp;&nbsp;变更推荐人
+			</div>
+		</div>
+
+		<div class='row-fluid'>
+			<div class='span2 text-right text-error'>
+				&nbsp;&nbsp;商户编号：
+			</div>
+			<div class='span10'>
+				<input type="text" id="" value="{$data.basic_busi_no}" readonly="readonly" />
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right text-error'>
+				&nbsp;&nbsp;商户名称：
+			</div>
+			<div class='span10'>
+				<input type="text" id="" value="{$data.basic_busi_name}" readonly="readonly" />
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right'>
+				&nbsp;&nbsp;当前推荐人：
+			</div>
+			<div class='span10'>
+				<input type="text" id="" value="{$data.name}" readonly="readonly" />
+			</div>
+		</div>
+		<div class='row-fluid'>
+			<div class='span2 text-right text-error'>
+				&nbsp;&nbsp;新推荐人：
+			</div>
+			<div class='span10'>
+				<select id="new_reference_uuid">
+					<!--<option value="">-请选择-</option>-->
+					{:W('Reference/options')} 
+				</select>
+			</div>
+		</div>
+
+		<hr />
+
+	</form>
+
+	<div class="btn-group">
+
+		<button class="btn btn-large btn-success " onclick="btnSave()"><i class="icon-save"></i>&nbsp;&nbsp;保存&nbsp;&nbsp;</button>
+
+		<button class="btn btn-large" onclick="javascript:window.history.go(-1)"><i class="icon-reply"></i>&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+
+	</div>
+
+</div>
+
+<script>
+	function btnSave() {
+		//		$("#uuid").val();
+		//		$("#new_reference_uuid").val();
+		window.location = "__URL__/saveModifyReference?uuid=" + $("#uuid").val() + "&new_reference_uuid=" + $("#new_reference_uuid").val();
+	}
+</script>

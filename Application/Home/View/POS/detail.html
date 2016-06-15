@@ -1,0 +1,377 @@
+<style type="text/css">
+	.row-fluid {
+		line-height: 40px;
+		font-size: 60%;
+		border-bottom: 1px lightgray solid;
+		border-left: 1px lightgray solid;
+		border-right: 1px lightgray solid;
+	}
+	
+	.row-fluid:first-of-type {
+		margin-top: 20px;
+		border-top: 1px lightgray solid;
+	}
+	
+	.row-fluid:last-of-type {
+		margin-bottom: 20px;
+	}
+	
+	input {
+		margin-bottom: 0!important;
+		width: 80%;
+	}
+	
+	select {
+		margin-bottom: 0!important;
+	}
+	
+	.row-fluid .span12 {
+		background-color: #F0F0F0;
+		font-weight: bold;
+	}
+	
+	textarea {
+		width: 96%;
+		margin-top: 8px;
+	}
+	
+	.right-border {
+		border-right: 1px lightgray solid;
+	}
+	
+	.span1 {
+		margin-left: 0!important;
+		min-width: 72px;
+	}
+	
+	.content {
+		line-height: 21px;
+		font-weight: bold;
+	}
+</style>
+
+<div class='container-fluid'>
+
+	<form action="" method="post">
+		<div class='row-fluid'>
+			<div class='span12'>
+				&nbsp;&nbsp;<i class='icon-user'></i>&nbsp;&nbsp;商户信息
+			</div>
+		</div>
+
+		<div class='row-fluid'>
+			<div class='span1'>
+				&nbsp;&nbsp;商户名称：
+			</div>
+			<div class='span2 right-border'>
+				<input type="text" id="" value="{$data.basic_busi_name}" readonly="readonly" />
+			</div>
+			<div class='span1'>
+				&nbsp;&nbsp;商户号：
+			</div>
+			<div class='span2 right-border'>
+				<input type="text" id="" value="{$data.basic_busi_no}" readonly="readonly" />
+			</div>
+			<div class='span1'>
+				&nbsp;&nbsp;注册名称：
+			</div>
+			<div class='span2 right-border'>
+				<input type="text" id="" value="{$data.basic_registered_name}" readonly="readonly" />
+			</div>
+			<div class='span1'>
+				&nbsp;&nbsp;业务员：
+			</div>
+			<div class='span2'>
+				<input type="text" id="" value="{$data.real_name}" readonly="readonly" />
+			</div>
+		</div>
+
+		<div class='row-fluid'>
+			<div class='span1'>
+				&nbsp;&nbsp;终端数量：
+			</div>
+			<div class='span2 right-border'>
+				<input type="text" id="" value="{$data.pos_num}" readonly="readonly" />
+			</div>
+			<div class='span1'>
+				&nbsp;&nbsp;无线台数：
+			</div>
+			<div class='span2 right-border'>
+				<input type="text" id="" value="{$data.wireless_pos_num}" readonly="readonly" />
+			</div>
+			<div class='span1'>
+				&nbsp;&nbsp;有线台数：
+			</div>
+			<div class='span2'>
+				<input type="text" id="" value="{$data.wire_pos_num}" readonly="readonly" />
+			</div>
+		</div>
+
+		<div class='row-fluid'>
+			<div class='span1'>
+				&nbsp;&nbsp;已绑终端：
+			</div>
+			<div class='span2 right-border'>
+				<input type="text" id="" value="{$data.binding_pos_num}" readonly="readonly" />
+			</div>
+			<div class='span1'>
+				&nbsp;&nbsp;已绑无线：
+			</div>
+			<div class='span2 right-border'>
+				<input type="text" id="" value="{$data.binding_wireless_pos_num}" readonly="readonly" />
+			</div>
+			<div class='span1'>
+				&nbsp;&nbsp;已绑有线：
+			</div>
+			<div class='span2'>
+				<input type="text" id="" value="{$data.binding_wire_pos_num}" readonly="readonly" />
+			</div>
+		</div>
+
+	</form>
+
+	<!--<div class="span12 box box-transparent" style="margin-left: 0;border: none;">-->
+
+	<div id="op_area" class="row-fluid" style="border: none;">
+
+		<div class="span2 box-quick-link blue-background op">
+
+			<a href="#">
+
+				<div class="header">
+
+					<div class="icon-wrench"></div>
+
+				</div>
+
+				<div class="content">装机</div>
+
+			</a>
+
+		</div>
+
+		<div class="span2 box-quick-link green-background op">
+
+			<a href="#">
+
+				<div class="header">
+
+					<div class="icon-plus-sign"></div>
+
+				</div>
+
+				<div class="content">增机</div>
+
+			</a>
+
+		</div>
+
+		<div class="span2 box-quick-link orange-background op">
+
+			<a href="#">
+
+				<div class="header">
+
+					<div class="icon-minus-sign"></div>
+
+				</div>
+
+				<div class="content">撤机</div>
+
+			</a>
+
+		</div>
+
+		<!--<div class="span2 box-quick-link purple-background op">
+
+			<a href="#">
+
+				<div class="header">
+
+					<div class="icon-refresh"></div>
+
+				</div>
+
+				<div class="content">类型换机</div>
+
+			</a>
+
+		</div>-->
+
+		<div class="span2 box-quick-link purple-background op">
+
+			<a href="#">
+
+				<div class="header">
+
+					<div class="icon-reply"></div>
+
+				</div>
+
+				<div class="content">还机</div>
+
+			</a>
+
+		</div>
+
+		<div class="span2 box-quick-link red-background op">
+
+			<a href="#">
+
+				<div class="header">
+
+					<div class="icon-remove-sign"></div>
+
+				</div>
+
+				<div class="content">故障解绑</div>
+
+			</a>
+
+		</div>
+
+		<div class="span2 box-quick-link muted-background boss op">
+
+			<a href="#">
+
+				<div class="header">
+
+					<div class="icon-cog"></div>
+
+				</div>
+
+				<div class="content">变更</div>
+
+			</a>
+
+		</div>
+
+	</div>
+
+	<hr />
+
+	<!--</div>-->
+
+	<div class="row-fluid" style="border: none;">
+		<table id="table" class="datatable" data-striped="false" data-toggle="table" data-url="__URL__/getPosListByMerchantUUID?merchantUUID={$data.uuid}" data-show-columns="false" data-search="false" data-show-refresh="false" data-show-toggle="false" data-pagination="false"
+			data-click-to-select="true" data-single-select="true" data-show-export="false">
+			<thead>
+				<tr>
+					<th data-checkbox="true" data-field="ck"></th>
+					<th data-align="center" data-field="no" data-formatter="noFormatter">序号</th>
+					<th data-field="sn_number">SN号</th>
+					<th data-field="sim_number">SIM卡号</th>
+					<th data-field="terminal_number">终端号</th>
+					<th data-field="terminal_type">终端类型</th>
+					<th data-field="terminal_model">终端型号</th>
+					<th data-field="available_type">可用状态</th>
+					<th data-field="binding_state">绑定状态</th>
+					<th data-field="binding_time">绑定时间</th>
+					<th data-field="installed_state">装机状态</th>
+
+					<th data-field="old_sn_number">待归还机具SN号</th>
+					<th data-field="old_sim_number">待归还机具SIM卡号</th>
+
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+</div>
+
+<script>
+	var mbRole = "{$mbRole}";
+	var mbID = "{$mbID}";
+	$(function() {
+		initHidden();
+		initOP();
+	});
+
+	function initHidden() {
+		if (mbRole == "外勤") {
+			$("#op_area").hide();
+			$("#table").bootstrapTable('hideColumn', 'ck');
+		} else if (mbRole == "内勤"||mbRole == "审批") {
+			$(".boss").hide();
+		} else {}
+	};
+
+	function noFormatter(value, row, index) {
+		return index + 1;
+	};
+
+	function initOP() {
+		$('.op').each(function(index) {
+			$(this).click(function() {
+				switch (index) {
+					case 0:
+						var rows = $("#table").bootstrapTable('getSelections');
+						if (rows.length > 0) {
+							if (rows[0]['installed_state'] == '待装机') {
+								window.location = "__URL__/showOP?op=" + index + "&posUUID=" + rows[0]['pos_uuid'];
+							}
+						}
+						break;
+					case 1:
+						window.location = "__URL__/showOP?op=" + index + "&posUUID={$data.uuid}";
+						break;
+					case 2:
+						var rows = $("#table").bootstrapTable('getSelections');
+						if (rows.length > 0) {
+							if (rows[0]['installed_state'] == '已装机') {
+								bootbox.confirm("确认撤机？",
+									'取消',
+									'确认',
+									function(r) {
+										if (r == true) {
+											window.location = "__URL__/saveRemove?merchantUUID={$data.uuid}&posUUID=" + rows[0]['pos_uuid'];
+										}
+									});
+							}
+						}
+						break;
+					case 3:
+						//hmx20160610还机
+						var rows = $("#table").bootstrapTable('getSelections');
+						if (rows.length > 0) {
+							//							if (rows[0]['installed_state'] == '已装机') {
+							//							window.location = "__URL__/showOP?op=" + index + "&posUUID=" + rows[0]['pos_uuid'];
+							//							}
+							bootbox.confirm("确认还机？",
+									'取消',
+									'确认',
+									function(r) {
+										if (r == true) {
+											window.location = "__URL__/saveReturn?merchantUUID={$data.uuid}&posUUID=" + rows[0]['pos_uuid'];
+										}
+									});
+						}
+						break;
+					case 4:
+						var rows = $("#table").bootstrapTable('getSelections');
+						if (rows.length > 0) {
+							if (rows[0]['installed_state'] == '已装机') {
+								bootbox.confirm("确认解绑？",
+									'取消',
+									'确认',
+									function(r) {
+										if (r == true) {
+											window.location = "__URL__/saveUnbind?merchantUUID={$data.uuid}&posUUID=" + rows[0]['pos_uuid'];
+										}
+									});
+							}
+						}
+						break;
+					case 5:
+						var rows = $("#table").bootstrapTable('getSelections');
+						if (rows.length > 0) {
+							window.location = "__URL__/showOP?op=" + index + "&posUUID=" + rows[0]['pos_uuid'];
+						}
+						break;
+					default:
+						break;
+				}
+			})
+		})
+	}
+</script>

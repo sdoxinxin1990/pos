@@ -1,0 +1,262 @@
+<style type="text/css">
+	.form-actions {
+		background: none;
+	}
+	
+	.box .box-content.box-double-padding {
+		padding: 20px 20px 0 20px;
+	}
+	
+	.control-label {
+		font-weight: bold;
+	}
+	
+	.form-control {
+		margin-bottom: 2px!important;
+	}
+</style>
+<div class='container-fluid'>
+	<div class='row-fluid' id='content-wrapper'>
+
+		<div class='span12'>
+
+			<div class='page-header'>
+
+				<h1 class='pull-left'><i class='icon-inbox'></i>&nbsp;&nbsp;<span>装机查询</span></h1>
+
+				<div class="pull-right">
+
+					<div class="btn-group">
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="tabbable" style="margin: 0 -20px;">
+
+			<ul class="nav nav-tabs">
+
+				<li class="mtab">
+
+					<a data-toggle="tab" href="#tab1">
+
+						<i class="icon-filter text-blue""></i> 待装机
+
+					</a>
+
+				</li>
+
+				<li class="mtab">
+
+					<a data-toggle="tab" href="#tab2">
+
+						<i class="icon-filter text-blue"></i> 已装机
+
+					</a>
+
+				</li>
+
+				<li class="mtab">
+
+					<a data-toggle="tab" href="#tab3">
+
+						<i class="icon-filter text-blue"></i> 已停用
+
+					</a>
+
+				</li>
+
+				<li class="mtab active">
+
+					<a data-toggle="tab" href="#tab4">
+
+						<i class="icon-filter text-blue"></i> 全部
+
+					</a>
+
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+
+	<div class="row-fluid hidden">
+
+		<div class="span12 box bordered-box blue-border box-collapsed">
+
+			<div class="box-header blue-background">
+
+				<div class="title">
+
+					<i class="icon-search"></i>&nbsp;&nbsp;查询
+
+				</div>
+
+				<div class="actions">
+
+					<a href="#" class="btn box-remove btn-mini btn-link hidden"><i class="icon-remove"></i></a>
+
+					<a href="#" class="btn box-collapse btn-mini btn-link"><i></i></a>
+
+				</div>
+
+			</div>
+
+			<div class="box-content box-double-padding">
+
+				<form class="form" style="margin-bottom: 0;">
+					<fieldset>
+
+						<div class='span6' style="margin-left: 0;">
+							<div class='control-group'>
+								<label class='control-label'>审核时间：</label>
+								<div class='controls'>
+									<div class="datepicker input-append span5" id="datepicker" style="margin-top: -8px;">
+										<input class="input-medium" data-format="yyyy-MM-dd" placeholder="起始时间" type="text">
+										<span class="add-on"><i data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></i></span>
+									</div>
+									<div class="datepicker input-append span5" id="datepicker" style="margin-top: -8px;">
+										<input class="input-medium" data-format="yyyy-MM-dd" placeholder="截止时间" type="text">
+										<span class="add-on"><i data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></i></span>
+									</div>
+									<p class='help-block' />
+								</div>
+							</div>
+						</div>
+
+						<div class='span6' style="margin-left: 0;">
+							<div class='control-group'>
+								<label class='control-label'>关键字：</label>
+								<div class='controls'>
+									<select class='span3' name="">
+											<option value="">-不限-</option>
+											<option value="">序号</option>
+											<option value="">商户名称</option>
+											<option value="">注册名称</option>
+										</select>
+									<input class='span6' id='full-name' type='text' />
+									<p class='help-block' />
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<div class="form-actions" style="margin-bottom: 0;">
+
+						<div class="text-right">
+
+							<div class="btn btn-white">
+
+								<i class="icon-search"></i>&nbsp;&nbsp;查询
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="row-fluid">
+		<table id="table" class="datatable" data-striped="true" data-toggle="table" data-url="__MODULE__/Merchant/getList" data-show-columns="true" data-search="true" data-show-refresh="true" data-show-toggle="true" data-pagination="true" data-click-to-select="true"
+			data-single-select="true" data-show-export="false">
+			<thead>
+				<tr>
+					<th data-align="center" data-field="serial_number" data-formatter="noFormatter">序号</th>
+					<th data-field="basic_contract_channel">签约渠道</th>
+					<th data-field="basic_busi_name">商户名称</th>
+					<th data-field="basic_manag_nature">经营性质</th>
+					<th data-field="approval_datetime">审核通过时间</th>
+					<th data-field="basic_busi_type">商户类别</th>
+					<th data-field="merchant_state">商户状态</th>
+					<th data-align="center" data-field="col11" data-formatter="operateFormatter">终端操作</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	function noFormatter(value, row, index) {
+		return [
+			'<a class="text-red" href="__MODULE__/Merchant/showDetail?readonly=readonly&serialNumber=',
+			value,
+			'">',
+			value,
+			'</a>'
+		].join('');
+	};
+
+	function operateFormatter(value, row, index) {
+		return [
+			' <div class="btn-group-vertical">',
+			'<button style="min-width:120px" class="btn btn-primary" onclick="btnShowDetail(' + index + ')">',
+			'<i class="icon-pencil"></i>',
+			'&nbsp;&nbsp;终端列表',
+			'</button>',
+			'<button style="min-width:120px" class="btn btn-primary" onclick="btnShowOperateLog(' + index + ')">',
+			'<i class="icon-pencil"></i>',
+			'&nbsp;&nbsp;操作记录',
+			'</button>',
+			'</div>'
+		].join('');
+	};
+
+	function btnShowDetail(index) {
+		//		alert("Contacts:" + index);
+		var row = $("#table").bootstrapTable('getData')[index];
+		console.log(row);
+		window.location = "__URL__/showDetail?merchantUUID=" + row['merchant_uuid'];
+	};
+
+	function btnShowOperateLog(index) {
+		<!--alert("Clerk:" + index);-->
+		var row = $("#table").bootstrapTable('getData')[index];
+		window.location = "__URL__/showLog?merchantUUID=" + row['merchant_uuid'];
+	};
+	$(function() {
+		initTabs();
+	});
+
+	function initTabs() {
+		$('.mtab').each(function(index) {
+			switch (index) {
+				case 0:
+					$(this).click(function() {
+						$("#table").bootstrapTable('refresh',{url: '__MODULE__/Merchant/getList?install_equipment_state=待装机'});
+					});
+					break;
+				case 1:
+					$(this).click(function() {
+						$("#table").bootstrapTable('refresh',{url: '__MODULE__/Merchant/getList?install_equipment_state=已装机'});
+					});
+					break;
+				case 2:
+					$(this).click(function() {
+						$("#table").bootstrapTable('refresh',{url: '__MODULE__/Merchant/getList?install_equipment_state=已停用'});
+					});
+					break;
+				case 3:
+					$(this).click(function() {
+						$("#table").bootstrapTable('refresh',{url: '__MODULE__/Merchant/getList'});
+					});
+					break;
+				default:
+					break;
+			}
+		});
+	};
+</script>
