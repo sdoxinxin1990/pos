@@ -13,7 +13,7 @@ class POSController extends Controller {
 		$this -> assign('mbID', session('MEMBER_ID'));
 		$this -> display('apply');
 	}
-	
+
 	public function repair() {
 		CK();
 		$this -> assign('mbRole', session('MEMBER_ROLE'));
@@ -135,6 +135,17 @@ class POSController extends Controller {
 		$result = ($PosApplyReport -> add($data));
 		if ($result == TRUE) {
 			//			var_dump($data);exit;
+			//20160618修改，报修通知内勤
+			if ($data['apply_type'] == '故障解绑') {
+				$MerchantBaseinfo = M('MerchantBaseinfo');
+				$where4['uuid'] = $data['merchant_uuid'];
+				$row = $MerchantBaseinfo -> where($where4) -> find();
+				$data4['todo_contents'] = "商户（" . $row['basic_busi_name'] . "）报修，详情【".$data['apply_describe']."】，请查看~";
+				$data4['target_member_role'] = '内勤';
+				$data4['creator'] = session('MEMBER_NAME');
+				$TodoBook = M('TodoBook');
+				$TodoBook -> add($data4);
+			}
 			$this -> success('保存成功', 'apply');
 		} else {
 			$this -> error('保存失败');
@@ -270,6 +281,16 @@ class POSController extends Controller {
 		$where3['merchant_uuid'] = $data['merchant_uuid'];
 		$data3['install_equipment_state'] = "已装机";
 		$MerchantAddReport -> where($where3) -> save($data3);
+		//20160618修改，添加待办事项
+		$MerchantBaseinfo = M('MerchantBaseinfo');
+		$where4['uuid'] = $data['merchant_uuid'];
+		$row = $MerchantBaseinfo -> where($where4) -> find();
+		$row2 = $MerchantPosBaseinfo -> where($where) -> find();
+		$data4['todo_contents'] = "商户（" . $row['basic_busi_name'] . "）完成装机，请提取SN号为（" . $row2['sn_number'] . "）的机器上门安装。";
+		$data4['target_member_uuid'] = $row['maintenance_member_uuid'];
+		$data4['creator'] = session('MEMBER_NAME');
+		$TodoBook = M('TodoBook');
+		$TodoBook -> add($data4);
 		$this -> success('完成', 'showDetail?merchantUUID=' . $data['merchant_uuid']);
 	}
 
@@ -344,12 +365,12 @@ class POSController extends Controller {
 		$data['installed_state'] = "待装机";
 		$data['available_type'] = "正常";
 		//20160610
-		$data['old_sn_number'] = $data['sn_number'].'';
-		$data['old_sim_number'] = $data['sim_number'].'';
+		$data['old_sn_number'] = $data['sn_number'] . '';
+		$data['old_sim_number'] = $data['sim_number'] . '';
 		$data['sn_number'] = "";
 		$data['sim_number'] = "";
 		$data['terminal_model'] = "";
-		
+
 		$MerchantPosBaseinfo -> where($where) -> save($data);
 		$PosOperationLog = M('PosOperationLog');
 		$data2['operation_type'] = "解绑";
@@ -359,7 +380,7 @@ class POSController extends Controller {
 		$PosOperationLog -> add($data2);
 		$this -> success('完成', 'showDetail?merchantUUID=' . $merchantUUID);
 	}
-	
+
 	/**
 	 * 保存还机
 	 */

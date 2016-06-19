@@ -909,17 +909,17 @@
 
 				<li class=''>
 
-					<a class='dropdown-collapse' href='#'>
+					<a href='/POS/index.php/home/Trade' target="m-iframe">
 
 						<i class='icon-envelope-alt'></i>
 
 						<span>交易查询</span>
 
-						<i class='icon-angle-down angle-down'></i>
+						<!--<i class='icon-angle-down angle-down'></i>-->
 
 					</a>
 
-					<ul class='nav nav-stacked'>
+					<!--<ul class='nav nav-stacked'>
 
 						<li class=''>
 
@@ -933,7 +933,7 @@
 
 						</li>
 
-						<!--<li class=''>
+						<li class=''>
 
 							<a href='javascript:bootbox.alert("建设中……")'>
 
@@ -943,9 +943,9 @@
 
 							</a>
 
-						</li>-->
+						</li>
 
-						<!--<li class=''>
+						<li class=''>
 
 							<a href='#'>
 
@@ -955,25 +955,25 @@
 
 							</a>
 
-						</li>-->
+						</li>
 
-					</ul>
+					</ul>-->
 
 				</li>
 
 				<li class=''>
 
-					<a class='dropdown-collapse' href='#'>
+					<a href='/POS/index.php/home/Risk' target="m-iframe">
 
 						<i class='icon-warning-sign'></i>
 
 						<span>风险交易</span>
 
-						<i class='icon-angle-down angle-down'></i>
+						<!--<i class='icon-angle-down angle-down'></i>-->
 
 					</a>
 
-					<ul class='nav nav-stacked'>
+					<!--<ul class='nav nav-stacked'>
 
 						<li class=''>
 
@@ -987,7 +987,7 @@
 
 						</li>
 
-						<!--<li class=''>
+						<li class=''>
 
 							<a href='#'>
 
@@ -997,9 +997,9 @@
 
 							</a>
 
-						</li>-->
+						</li>
 
-						<!--<li class=''>
+						<li class=''>
 
 							<a href='#'>
 
@@ -1009,9 +1009,9 @@
 
 							</a>
 
-						</li>-->
+						</li>
 
-						<!--<li class=''>
+						<li class=''>
 
 							<a href='#'>
 
@@ -1021,9 +1021,9 @@
 
 							</a>
 
-						</li>-->
+						</li>
 
-					</ul>
+					</ul>-->
 
 				</li>
 				

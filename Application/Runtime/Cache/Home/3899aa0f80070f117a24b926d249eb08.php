@@ -377,7 +377,7 @@
 			</div>
 			<div class='span10'>
 				<div class="input-prepend input-append" style="margin-bottom: 0;">
-					<input name="sn_number" type="text" id="" value="<?php echo ($data["sn_number"]); ?>" class="text-right" type="text" style="margin-top: 4px;min-width: 344px;" />
+					<input name="sn_number" type="text" id="" value="<?php echo ($data["sn_number"]); ?>" type="text" style="margin-top: 4px;min-width: 344px;" />
 					<button type="button" onclick="checkSN()" class="add-on btn btn-primary" style="margin-top: 4px;height: auto;text-shadow: none;">&nbsp;&nbsp;检查&nbsp;&nbsp;</button>
 				</div>
 			</div>
@@ -388,7 +388,7 @@
 			</div>
 			<div class='span10'>
 				<div class="input-prepend input-append" style="margin-bottom: 0;">
-					<input name="sim_number" value="<?php echo ($data["sim_number"]); ?>" class="text-right" type="text" style="margin-top: 4px;min-width: 344px;">
+					<input name="sim_number" value="<?php echo ($data["sim_number"]); ?>" type="text" style="margin-top: 4px;min-width: 344px;">
 					<button type="button" onclick="checkSIM()" class="add-on btn btn-primary" style="margin-top: 4px;height: auto;text-shadow: none;">&nbsp;&nbsp;检查&nbsp;&nbsp;</button>
 				</div>
 			</div>

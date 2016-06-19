@@ -606,7 +606,7 @@
 		if (mbRole == "外勤") {
 			$("#op_area").hide();
 			$("#table").bootstrapTable('hideColumn', 'ck');
-		} else if (mbRole == "内勤") {
+		} else if (mbRole == "内勤"||mbRole == "审批") {
 			$(".boss").hide();
 		} else {}
 	};

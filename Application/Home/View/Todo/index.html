@@ -5,8 +5,8 @@
 	}
 	
 	.date {
-		font-size: 120%!important;
-		margin-bottom: 10px;
+		/*font-size: 120%!important;
+		margin-bottom: 10px;*/
 	}
 </style>
 
@@ -38,15 +38,19 @@
 
 						<div class='sortable-container'>
 
-							<div class='date text-contrast'>2016/6/7</div>
-
 							<ul class='unstyled sortable' data-sortable-axis='y' data-sortable-connect='.sortable'>
 
-								<li class='important item'>
+								<!--<li class='important item'>
 
 									<label class='check pull-left todo'>待办事项1</label>
 
 									<div class='actions pull-right'>
+
+										<small class="date muted">
+	
+						                    <span class="timeago fade">3 years ago</span>
+						
+						                </small>
 
 										<a data-target="11" class='btn btn-link text-success btn-confirm' data-placement='top' href='#' title='标记完成'>
 
@@ -56,23 +60,31 @@
 
 									</div>
 
-								</li>
-								
-								<li class='important item'>
+								</li>-->
 
-									<label class='check pull-left todo'>待办事项2</label>
+								<volist name="list" id="vo">
+									<li class='important item'>
 
-									<div class='actions pull-right'>
+										<label class='check pull-left todo'>{$vo.todo_contents}</label>
 
-										<a data-target="22" class='btn btn-link text-success btn-confirm' data-placement='top' href='#' title='标记完成'>
+										<div class='actions pull-right'>
 
-											<i class='icon-ok'></i>
+											<small class="date muted">
+		
+							                    <span class="timeago fade">{$vo.create_time}</span>
+							
+							                </small>
 
-										</a>
+											<a data-target="{$vo.todo_num}" class='btn btn-link text-success btn-confirm' data-placement='top' href='#' title='标记完成'>
 
-									</div>
+												<i class='icon-ok'></i>
 
-								</li>
+											</a>
+
+										</div>
+
+									</li>
+								</volist>
 
 							</ul>
 
@@ -91,9 +103,12 @@
 </div>
 
 <script>
-	$(function(){
-		$('.btn-confirm').click(function(){
-			alert($(this).attr("data-target")); 
+	$(function() {
+		$('.btn-confirm').click(function() {
+			//			alert($(this).attr("data-target"));
+			$.ajax({
+				url: "__URL__/updateIKnow?todoNum=" + $(this).attr("data-target")
+			});
 			$(this).parent().parent().remove();
 		});
 	});

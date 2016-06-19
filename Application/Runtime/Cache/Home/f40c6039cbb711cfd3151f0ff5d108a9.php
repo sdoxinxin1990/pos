@@ -320,8 +320,8 @@
 	}
 	
 	.date {
-		font-size: 120%!important;
-		margin-bottom: 10px;
+		/*font-size: 120%!important;
+		margin-bottom: 10px;*/
 	}
 </style>
 
@@ -353,15 +353,19 @@
 
 						<div class='sortable-container'>
 
-							<div class='date text-contrast'>2016/6/7</div>
-
 							<ul class='unstyled sortable' data-sortable-axis='y' data-sortable-connect='.sortable'>
 
-								<li class='important item'>
+								<!--<li class='important item'>
 
 									<label class='check pull-left todo'>待办事项1</label>
 
 									<div class='actions pull-right'>
+
+										<small class="date muted">
+	
+						                    <span class="timeago fade">3 years ago</span>
+						
+						                </small>
 
 										<a data-target="11" class='btn btn-link text-success btn-confirm' data-placement='top' href='#' title='标记完成'>
 
@@ -371,23 +375,29 @@
 
 									</div>
 
-								</li>
-								
-								<li class='important item'>
+								</li>-->
 
-									<label class='check pull-left todo'>待办事项2</label>
+								<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li class='important item'>
 
-									<div class='actions pull-right'>
+										<label class='check pull-left todo'><?php echo ($vo["todo_contents"]); ?></label>
 
-										<a data-target="22" class='btn btn-link text-success btn-confirm' data-placement='top' href='#' title='标记完成'>
+										<div class='actions pull-right'>
 
-											<i class='icon-ok'></i>
+											<small class="date muted">
+		
+							                    <span class="timeago fade"><?php echo ($vo["create_time"]); ?></span>
+							
+							                </small>
 
-										</a>
+											<a data-target="<?php echo ($vo["todo_num"]); ?>" class='btn btn-link text-success btn-confirm' data-placement='top' href='#' title='标记完成'>
 
-									</div>
+												<i class='icon-ok'></i>
 
-								</li>
+											</a>
+
+										</div>
+
+									</li><?php endforeach; endif; else: echo "" ;endif; ?>
 
 							</ul>
 
@@ -406,9 +416,12 @@
 </div>
 
 <script>
-	$(function(){
-		$('.btn-confirm').click(function(){
-			alert($(this).attr("data-target")); 
+	$(function() {
+		$('.btn-confirm').click(function() {
+			//			alert($(this).attr("data-target"));
+			$.ajax({
+				url: "/POS/index.php/home/todo/updateIKnow?todoNum=" + $(this).attr("data-target")
+			});
 			$(this).parent().parent().remove();
 		});
 	});

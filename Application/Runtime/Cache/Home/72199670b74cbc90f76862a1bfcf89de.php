@@ -313,7 +313,24 @@
 
 <script src='/POS/assets/javascripts/demo/charts.js' type='text/javascript'></script>
 
-<script src='/POS/assets/javascripts/demo/demo.js' type='text/javascript'></script> <div class='container-fluid'>
+<script src='/POS/assets/javascripts/demo/demo.js' type='text/javascript'></script> <style type="text/css">
+	.form-actions {
+		background: none;
+	}
+	
+	.box .box-content.box-double-padding {
+		padding: 20px 20px 0 20px;
+	}
+	
+	.control-label {
+		font-weight: bold;
+	}
+	
+	.form-control {
+		margin-bottom: 2px!important;
+	}
+</style>
+<div class='container-fluid'>
 
 	<div class='row-fluid' id='content-wrapper'>
 
@@ -405,6 +422,9 @@
 	$(function() {
 		if (mbRole == "外勤") {
 			$("#op_area").hide(); 
+			$("#table").bootstrapTable('hideColumn', 'op');
+		}
+		if (mbRole != "经理") {
 			$("#table").bootstrapTable('hideColumn', 'op');
 		}
 	});

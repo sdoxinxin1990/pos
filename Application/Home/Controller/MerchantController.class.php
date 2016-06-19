@@ -131,15 +131,15 @@ class MerchantController extends Controller {
 
 		//20160611修改，内勤人员无法看到敏感信息
 		if (session('MEMBER_ROLE') == '内勤') {
-			$data['basic_busi_license_no'] = '********';
-			$data['basic_tax_registration_no'] = '********';
-			$data['basic_organization_code'] = '********';
-			$data['corporate_certificates'] = '********';
-			$data['corporate_cellphone'] = '********';
-			$data['contacts_cellphone'] = '********';
-			$data['contacts_email'] = '********';
-			$data['settlement_account_name'] = '********';
-			$data['settlement_account_number'] = '********';
+			$data['basic_busi_license_no'] = substr_replace($data['basic_busi_license_no'], "******", 4);
+			$data['basic_tax_registration_no'] = substr_replace($data['basic_tax_registration_no'], "******", 4);
+			$data['basic_organization_code'] = substr_replace($data['basic_organization_code'], "******", 4);
+			$data['corporate_certificates'] = substr_replace($data['corporate_certificates'], "******", 4);
+			$data['corporate_cellphone'] = substr_replace($data['corporate_cellphone'], "******", 4);
+			$data['contacts_cellphone'] = substr_replace($data['contacts_cellphone'], "******", 4);
+			$data['contacts_email'] = substr_replace($data['contacts_email'], "******", 4);
+			$data['settlement_account_name'] = substr_replace($data['settlement_account_name'], "******", 4);
+			$data['settlement_account_number'] = substr_replace($data['settlement_account_number'], "******", 4);
 		}
 
 		$this -> assign('data', $data);
@@ -247,7 +247,7 @@ class MerchantController extends Controller {
 		$data2['merchant_uuid'] = $uuid;
 
 		//20160604
-		$data['maintenance_member_uuid'] = session('MEMBER_ID');
+		//		$data['maintenance_member_uuid'] = session('MEMBER_ID');
 		$data2['create_member_uuid'] = session('MEMBER_ID');
 
 		$result = 0;
@@ -261,6 +261,12 @@ class MerchantController extends Controller {
 		$this -> createPOS($data['wire_pos_num'], $data['wireless_pos_num'], $uuid);
 
 		if ($result == 2) {
+			//20160618修改，保存新增进件成功，提醒审批角色审批
+			$data4['todo_contents'] = "新增商户进件单，单号（" . $data2['serial_number'] . "），请查看~";
+			$data4['target_member_role'] = '审批';
+			$data4['creator'] = session('MEMBER_NAME');
+			$TodoBook = M('TodoBook');
+			$TodoBook -> add($data4);
 			$this -> success('保存成功', 'index');
 		} else {
 			$this -> error('保存失败');
@@ -447,7 +453,8 @@ class MerchantController extends Controller {
 		$where['uuid'] = $data['uuid'];
 		$MerchantBaseinfo -> where($where) -> save($data);
 		$data2['approval_datetime'] = date("Y-m-d H:i:sa");
-		$data2['approval_member_uuid'] = session('MEMBER_ID'); ;
+		$data2['approval_member_uuid'] = session('MEMBER_ID');
+		;
 		$data2['state'] = '已完成进件';
 		$where2['merchant_uuid'] = $data['uuid'];
 		$MerchantAddReport -> where($where2) -> save($data2);

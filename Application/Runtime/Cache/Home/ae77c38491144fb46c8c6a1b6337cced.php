@@ -405,6 +405,18 @@
 			</div>
 		</div>
 		<div class='row-fluid'>
+			<div class='span2 text-right text-red'>
+				&nbsp;&nbsp;维护人员：
+			</div>
+			<div class='span2 right-border'>
+				<!--<input type="text" id="" value="<?php echo ($data[""]); ?>" />-->
+				<select name="maintenance_member_uuid" style="width: 144px;" data-val="<?php echo ($data["maintenance_member_uuid"]); ?>">
+					<!--<option value="0">-请选择-</option>-->
+					<?php echo W('Member/optionsOutdoor');?> 
+				</select>
+			</div>
+		</div>
+		<div class='row-fluid'>
 			<div class='span12'>
 				&nbsp;&nbsp;基本信息
 			</div>
@@ -422,7 +434,7 @@
 			<div class='span2 right-border'>
 				<!--<input type="text" id="" value="<?php echo ($data[""]); ?>" />-->
 				<div class="datepicker input-append span5" id="datepicker" style="margin-top: 0;height: 40px;margin-bottom: 0;">
-					<input name="basic_busi_license_validity" class="input-medium" data-format="yyyy-MM-dd" placeholder="" type="text" style="width: 100px;vertical-align: top;" data-rule-required='true' value="<?php echo ($data["basic_busi_license_validity"]); ?>" >
+					<input name="basic_busi_license_validity" class="input-medium" data-format="yyyy-MM-dd" placeholder="" type="text" style="width: 100px;vertical-align: top;" data-rule-required='true' value="<?php echo ($data["basic_busi_license_validity"]); ?>">
 					<span class="add-on"><i data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></i></span>
 				</div>
 			</div>
@@ -470,7 +482,7 @@
 				&nbsp;&nbsp;主营业务：
 			</div>
 			<div class='span2'>
-				<input name="basic_main_busi" type="text" id="" value="<?php echo ($data["basic_main_busi"]); ?>" data-rule-required='true'/>
+				<input name="basic_main_busi" type="text" id="" value="<?php echo ($data["basic_main_busi"]); ?>" data-rule-required='true' />
 			</div>
 		</div>
 		<div class='row-fluid'>
@@ -526,7 +538,7 @@
 				&nbsp;&nbsp;注册地址：
 			</div>
 			<div class='span10'>
-				<input name="basic_registered_address" type="text" id="" value="<?php echo ($data["basic_registered_address"]); ?>" data-rule-required='true'/>
+				<input name="basic_registered_address" type="text" id="" value="<?php echo ($data["basic_registered_address"]); ?>" data-rule-required='true' />
 			</div>
 		</div>
 		<div class='row-fluid'>
@@ -534,7 +546,7 @@
 				&nbsp;&nbsp;经营地址：
 			</div>
 			<div class='span10'>
-				<input name="basic_busi_address" type="text" id="" value="<?php echo ($data["basic_busi_address"]); ?>" data-rule-required='true'/>
+				<input name="basic_busi_address" type="text" id="" value="<?php echo ($data["basic_busi_address"]); ?>" data-rule-required='true' />
 			</div>
 		</div>
 		<div class='row-fluid'>
@@ -547,7 +559,7 @@
 				&nbsp;&nbsp;姓名：
 			</div>
 			<div class='span2 right-border'>
-				<input name="corporate_name" type="text" id="" value="<?php echo ($data["corporate_name"]); ?>" style="width: 60%;" data-rule-required='true'/>
+				<input name="corporate_name" type="text" id="" value="<?php echo ($data["corporate_name"]); ?>" style="width: 60%;" data-rule-required='true' />
 			</div>
 			<div class='span2 text-right text-red'>
 				&nbsp;&nbsp;证件：
@@ -559,7 +571,7 @@
 				</select>
 			</div>
 			<div class='span4'>
-				<input name="corporate_certificates" type="text" id="" value="<?php echo ($data["corporate_certificates"]); ?>" data-rule-required='true'/>
+				<input name="corporate_certificates" type="text" id="" value="<?php echo ($data["corporate_certificates"]); ?>" data-rule-required='true' />
 			</div>
 		</div>
 		<div class='row-fluid'>
@@ -567,7 +579,7 @@
 				&nbsp;&nbsp;手机：
 			</div>
 			<div class='span2 right-border'>
-				<input name="corporate_cellphone" type="text" id="" value="<?php echo ($data["corporate_cellphone"]); ?>" style="width: 60%;" data-rule-required='true'/>
+				<input name="corporate_cellphone" type="text" id="" value="<?php echo ($data["corporate_cellphone"]); ?>" style="width: 60%;" data-rule-required='true' />
 			</div>
 			<div class='span2 text-right'>
 				&nbsp;&nbsp;固话：
@@ -586,13 +598,13 @@
 				&nbsp;&nbsp;姓名：
 			</div>
 			<div class='span2 right-border'>
-				<input name="contacts_name" type="text" id="" value="<?php echo ($data["contacts_name"]); ?>" style="width: 60%;" data-rule-required='true'/>
+				<input name="contacts_name" type="text" id="" value="<?php echo ($data["contacts_name"]); ?>" style="width: 60%;" data-rule-required='true' />
 			</div>
 			<div class='span2 text-right text-red'>
 				&nbsp;&nbsp;手机：
 			</div>
 			<div class='span6'>
-				<input name="contacts_cellphone" type="text" id="" value="<?php echo ($data["contacts_cellphone"]); ?>" data-rule-required='true'/>
+				<input name="contacts_cellphone" type="text" id="" value="<?php echo ($data["contacts_cellphone"]); ?>" data-rule-required='true' />
 			</div>
 		</div>
 		<div class='row-fluid'>
@@ -600,7 +612,7 @@
 				&nbsp;&nbsp;E-mail：
 			</div>
 			<div class='span2 right-border'>
-				<input name="contacts_email" type="text" id="" value="<?php echo ($data["contacts_email"]); ?>" style="width: 60%;" data-rule-required='true'/>
+				<input name="contacts_email" type="text" id="" value="<?php echo ($data["contacts_email"]); ?>" style="width: 60%;" data-rule-required='true' />
 			</div>
 			<div class='span2 text-right'>
 				&nbsp;&nbsp;固话：
@@ -624,7 +636,7 @@
 					<option value="自然日（D）">自然日（D）</option>
 				</select>
 				<i class="icon-plus"></i>
-				<input name="settlement_period" type="number" id="" value="<?php echo ($data["settlement_period"]); ?>" style="width: 20%;" data-rule-required='true'/> 工作日
+				<input name="settlement_period" type="number" id="" value="<?php echo ($data["settlement_period"]); ?>" style="width: 20%;" data-rule-required='true' /> 工作日
 			</div>
 		</div>
 		<div class='row-fluid'>
@@ -636,8 +648,11 @@
 					<option value="单笔计费-按比例">单笔计费-按比例</option>
 					<option value="单笔计费-封顶">单笔计费-封顶</option>
 				</select>
-				<input name="settlement_basic_rate_percentage" type="text" id="" value="<?php echo ($data["settlement_basic_rate_percentage"]); ?>" style="width: 20%;" data-rule-required='true'/> %，
-				<input name="settlement_basic_rate_ceiling" type="number" id="" value="<?php echo ($data["settlement_basic_rate_ceiling"]); ?>" style="width: 20%;" data-rule-required='true'/> 元/笔封顶
+				<input name="settlement_basic_rate_percentage" type="text" id="" value="<?php echo ($data["settlement_basic_rate_percentage"]); ?>" style="width: 20%;" data-rule-required='true' />
+				<span id="settlement_basic_rate_percentage">%</span>
+				<input name="settlement_basic_rate_ceiling" type="number" id="" value="<?php echo ($data["settlement_basic_rate_ceiling"]); ?>" style="width: 20%;" data-rule-required='true' />
+				<span id="settlement_basic_rate_ceiling">元/笔封顶</span>
+
 			</div>
 		</div>
 		<div class='row-fluid'>
@@ -654,13 +669,13 @@
 				&nbsp;&nbsp;账户名称：
 			</div>
 			<div class='span2 right-border'>
-				<input name="settlement_account_name" type="text" id="" value="<?php echo ($data["settlement_account_name"]); ?>" data-rule-required='true'/>
+				<input name="settlement_account_name" type="text" id="" value="<?php echo ($data["settlement_account_name"]); ?>" data-rule-required='true' />
 			</div>
-			<div class='span2 text-right'>
+			<div class='span2 text-right text-red'>
 				&nbsp;&nbsp;身份证号：
 			</div>
 			<div class='span2'>
-				<input name="settlement_account_idcard" type="text" id="" value="<?php echo ($data["settlement_account_idcard"]); ?>" />
+				<input name="settlement_account_idcard" type="text" id="" value="<?php echo ($data["settlement_account_idcard"]); ?>" data-rule-required='true' />
 			</div>
 		</div>
 		<div class='row-fluid'>
@@ -668,20 +683,20 @@
 				&nbsp;&nbsp;账户卡号：不支持存折！
 			</div>
 			<div class='span2 right-border'>
-				<input name="settlement_account_number" type="text" id="" value="<?php echo ($data["settlement_account_number"]); ?>" data-rule-required='true'/>
+				<input name="settlement_account_number" type="text" id="" value="<?php echo ($data["settlement_account_number"]); ?>" data-rule-required='true' />
 
 			</div>
 			<div class='span2 text-right text-red'>
 				&nbsp;&nbsp;开户行：
 			</div>
 			<div class='span2 right-border'>
-				<input name="settlement_bank_account" type="text" id="" value="<?php echo ($data["settlement_bank_account"]); ?>" data-rule-required='true'/>
+				<input name="settlement_bank_account" type="text" id="" value="<?php echo ($data["settlement_bank_account"]); ?>" data-rule-required='true' />
 			</div>
 			<div class='span2 text-right text-red'>
 				&nbsp;&nbsp;联行号：
 			</div>
 			<div class='span2'>
-				<input name="settlement_bank_line" type="text" id="" value="<?php echo ($data["settlement_bank_line"]); ?>" data-rule-required='true'/>
+				<input name="settlement_bank_line" type="text" id="" value="<?php echo ($data["settlement_bank_line"]); ?>" data-rule-required='true' />
 			</div>
 		</div>
 		<div class='row-fluid'>
@@ -694,14 +709,14 @@
 				&nbsp;&nbsp;有线POS数量（台）：
 			</div>
 			<div class='span2 right-border'>
-				<input name="wire_pos_num" type="number" id="" value="<?php echo ($data["wire_pos_num"]); ?>" min="0" max="99"/>
+				<input name="wire_pos_num" type="number" id="" value="<?php echo ($data["wire_pos_num"]); ?>" min="0" max="99" />
 
 			</div>
 			<div class='span2 text-right'>
 				&nbsp;&nbsp;无线POS数量（台）：
 			</div>
 			<div class='span2 right-border'>
-				<input name="wireless_pos_num" type="number" id="" value="<?php echo ($data["wireless_pos_num"]); ?>" min="0" max="99"/>
+				<input name="wireless_pos_num" type="number" id="" value="<?php echo ($data["wireless_pos_num"]); ?>" min="0" max="99" />
 			</div>
 			<div class='span2'>
 
@@ -844,10 +859,31 @@
 </div>
 
 <script type="text/javascript">
-
-	$(function(){
+	$(function() {
 		setSelet();
 		setFile();
+		if ($("[name='settlement_basic_rate_type']").val() == "单笔计费-按比例") {
+			$("[name='settlement_basic_rate_percentage']").show();
+			$("#settlement_basic_rate_percentage").show();
+			$("[name='settlement_basic_rate_ceiling']").hide();
+			$("#settlement_basic_rate_ceiling").hide();
+		} else {
+			$("[name='settlement_basic_rate_percentage']").hide();
+			$("[name='settlement_basic_rate_ceiling']").show();
+		}
+		$("[name='settlement_basic_rate_type']").change(function() {
+			if ($(this).val() == "单笔计费-按比例") {
+				$("[name='settlement_basic_rate_percentage']").show();
+				$("#settlement_basic_rate_percentage").show();
+				$("[name='settlement_basic_rate_ceiling']").hide();
+				$("#settlement_basic_rate_ceiling").hide();
+			} else {
+				$("[name='settlement_basic_rate_percentage']").hide();
+				$("#settlement_basic_rate_percentage").hide();
+				$("[name='settlement_basic_rate_ceiling']").show();
+				$("#settlement_basic_rate_ceiling").show();
+			}
+		});
 	});
 
 	function submitForm() {
@@ -855,27 +891,27 @@
 	};
 
 	function setSelet() {
-		$("select").each(function(){
+		$("select").each(function() {
 			var val = $(this).attr("data-val");
 			// alert($(this).attr("data-val"));
-			$(this).find("option").each(function(){
-				if($(this).val() == val){
-					$(this).attr("selected",true);
+			$(this).find("option").each(function() {
+				if ($(this).val() == val) {
+					$(this).attr("selected", true);
 				}
 			});
 		});
 	};
 
 	function setFile() {
-		$(":file").each(function(){
+		$(":file").each(function() {
 			var val = $(this).attr("data-val");
 			var node = ['<a class="text-red" target="_Blank" href="/POS/Uploads/',
-						val,
-						'">',
-						'&nbsp;&nbsp;&nbsp;&nbsp;查看下载&nbsp;&nbsp;&nbsp;&nbsp;',
-						'</a>'
-						].join('');
-			if(val.length > 0){
+				val,
+				'">',
+				'&nbsp;&nbsp;&nbsp;&nbsp;查看下载&nbsp;&nbsp;&nbsp;&nbsp;',
+				'</a>'
+			].join('');
+			if (val.length > 0) {
 				$(this).parent().after(node);
 			}
 		});

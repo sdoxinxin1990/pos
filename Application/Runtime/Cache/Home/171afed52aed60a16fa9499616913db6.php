@@ -624,7 +624,7 @@
 
 		</div>
 
-		<div class='control-group'>
+		<!--<div class='control-group'>
 
 			<label class='control-label'>商户类别：</label>
 
@@ -639,7 +639,7 @@
 
 			</div>
 
-		</div>
+		</div>-->
 
 		</form>
 
